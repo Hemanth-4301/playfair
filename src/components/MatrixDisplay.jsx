@@ -10,13 +10,28 @@ export default function MatrixDisplay({ matrix }) {
   };
 
   return (
-    <div className="glassmorphic p-4 sm:p-6 rounded-xl">
-      <h2 className="text-base sm:text-lg font-semibold mb-4">
+    <motion.div
+      className="glassmorphic p-4 sm:p-6 rounded-xl"
+      whileHover={{ scale: 1.01 }}
+      whileTap={{ scale: 0.98 }}
+      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+    >
+      <motion.h2
+        className="text-base sm:text-lg font-semibold mb-4"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      >
         Cipher Matrix (5x5)
-      </h2>
+      </motion.h2>
 
       {matrix.length > 0 ? (
-        <div className="grid grid-cols-5 gap-1 sm:gap-2">
+        <motion.div
+          className="grid grid-cols-5 gap-1 sm:gap-2"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        >
           {matrix.flat().map((letter, idx) => (
             <motion.div
               key={idx}
@@ -33,25 +48,44 @@ export default function MatrixDisplay({ matrix }) {
               {letter}
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       ) : (
-        <div className="text-center py-8 text-gray-400 text-sm sm:text-base">
+        <motion.div
+          className="text-center py-8 text-gray-400 text-sm sm:text-base"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           Enter a key to generate the matrix
-        </div>
+        </motion.div>
       )}
 
       {/* Legend */}
-      <div className="mt-6 space-y-2 text-xs sm:text-sm text-gray-400">
-        <p>
+      <motion.div
+        className="mt-6 space-y-2 text-xs sm:text-sm text-gray-400"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.2 }}
+      >
+        <motion.p
+          whileHover={{ x: 5 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        >
           <span className="text-gray-500">•</span> Same row: shift right
-        </p>
-        <p>
+        </motion.p>
+        <motion.p
+          whileHover={{ x: 5 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        >
           <span className="text-gray-500">•</span> Same column: shift down
-        </p>
-        <p>
+        </motion.p>
+        <motion.p
+          whileHover={{ x: 5 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        >
           <span className="text-gray-500">•</span> Rectangle: swap columns
-        </p>
-      </div>
-    </div>
+        </motion.p>
+      </motion.div>
+    </motion.div>
   );
 }
