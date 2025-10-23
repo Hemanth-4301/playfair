@@ -80,7 +80,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-800 text-white overflow-hidden">
+    <div className="min-h-screen bg-black text-white overflow-hidden">
       <CursorGlow />
 
       {/* Animated background particles */}
@@ -173,7 +173,7 @@ export default function App() {
           </div>
 
           {/* Right Column */}
-          <div className="space-y-6">
+          <div className="space-y-6 flex flex-col-reverse gap-5 md:gap-7">
             {/* Matrix Display */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}

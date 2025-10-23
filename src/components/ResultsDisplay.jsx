@@ -16,7 +16,7 @@ export default function ResultsDisplay({ result }) {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="glassmorphic p-4 sm:p-6 rounded-xl"
+      className="glassmorphic p-4 sm:p-6 rounded-xl "
     >
       <h2 className="text-base sm:text-lg font-semibold mb-4">Result</h2>
 
@@ -30,15 +30,6 @@ export default function ResultsDisplay({ result }) {
           </div>
         </div>
 
-        <div className="flex justify-center">
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-            className="text-xl sm:text-2xl"
-          >
-            ↓
-          </motion.div>
-        </div>
 
         <div>
           <p className="text-xs sm:text-sm text-gray-400 mb-2">

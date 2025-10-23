@@ -25,7 +25,7 @@ export default function CursorGlow() {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
       const gradient = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, 120)
-      gradient.addColorStop(0, "rgba(59, 130, 246, 0.5)")
+      gradient.addColorStop(0, "rgba(59, 130, 200, 0.5)")
       gradient.addColorStop(0.5, "rgba(139, 92, 246, 0.3)")
       gradient.addColorStop(1, "rgba(236, 72, 153, 0)")
 
