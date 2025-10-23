@@ -4,7 +4,6 @@ import OperationSelector from "./components/OperationSelector";
 import InputForm from "./components/InputForm";
 import MatrixDisplay from "./components/MatrixDisplay";
 import ResultsDisplay from "./components/ResultsDisplay";
-import CursorGlow from "./components/CursorGlow";
 import { generateMatrix, encrypt, decrypt } from "./utils/playfair";
 import "./App.css";
 
@@ -80,10 +79,8 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden">
-      <CursorGlow />
-
-      {/* Animated background particles */}
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white relative">
+      {/* Background and content */}
       <div className="fixed inset-0 pointer-events-none">
         {[...Array(20)].map((_, i) => (
           <motion.div
